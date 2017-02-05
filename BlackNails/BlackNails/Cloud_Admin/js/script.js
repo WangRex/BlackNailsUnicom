@@ -3244,7 +3244,6 @@
 			}
 			if (App.isPage("dynamic_table")) {
 			    handleDataTables();	//Function to display data tables
-			    handleUniform();	//Function to handle uniform inputs
 			}
 			if (App.isPage("jqgrid_plugin")) {
 				handleJqgrid();	//Function to display jqGrid
