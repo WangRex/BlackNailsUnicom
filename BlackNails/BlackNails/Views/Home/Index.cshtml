@@ -2,25 +2,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
-<div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Box Settings</h4>
-            </div>
-            <div class="modal-body">
-                Here goes box setting content.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /SAMPLE BOX CONFIGURATION MODAL FORM-->
 <div class="container">
     <div class="row">
         <div id="content" class="col-lg-12">
@@ -47,116 +28,61 @@
                 </div>
             </div>
             <!-- /PAGE HEADER -->
-            <!-- DASHBOARD CONTENT -->
+
             <div class="row">
-                <!-- COLUMN 1 -->
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="dashbox panel panel-default">
-                                <div class="panel-body">
-                                    <div class="panel-left red">
-                                        <i class="fa fa-instagram fa-3x"></i>
-                                    </div>
-                                    <div class="panel-right">
-                                        <div class="number">6718</div>
-                                        <div class="title">Likes</div>
-                                        <span class="label label-success">
-                                            26% <i class="fa fa-arrow-up"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="dashbox panel panel-default">
-                                <div class="panel-body">
-                                    <div class="panel-left blue">
-                                        <i class="fa fa-twitter fa-3x"></i>
-                                    </div>
-                                    <div class="panel-right">
-                                        <div class="number">2724</div>
-                                        <div class="title">Followers</div>
-                                        <span class="label label-warning">
-                                            5% <i class="fa fa-arrow-down"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="quick-pie panel panel-default">
-                                <div class="panel-body">
-                                    <div class="col-md-4 text-center">
-                                        <div id="dash_pie_1" class="piechart" data-percent="59">
-                                            <span class="percent"></span>
-                                        </div>
-                                        <a href="#" class="title">New Visitors <i class="fa fa-angle-right"></i></a>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                        <div id="dash_pie_2" class="piechart" data-percent="73">
-                                            <span class="percent"></span>
-                                        </div>
-                                        <a href="#" class="title">Bounce Rate <i class="fa fa-angle-right"></i></a>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                        <div id="dash_pie_3" class="piechart" data-percent="90">
-                                            <span class="percent"></span>
-                                        </div>
-                                        <a href="#" class="title">Brand Popularity <i class="fa fa-angle-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /COLUMN 1 -->
-                <!-- COLUMN 2 -->
-                <div class="col-md-6">
-                    <div class="box solid grey">
+                <div class="col-md-12">
+                    <!-- LABELLED BIG BUTTONS -->
+                    <div class="box">
                         <div class="box-title">
-                            <h4><i class="fa fa-dollar"></i>Revenue</h4>
-                            <div class="tools">
-                                <span class="label label-danger">
-                                    20% <i class="fa fa-arrow-up"></i>
-                                </span>
-                                <a href="#box-config" data-toggle="modal" class="config">
-                                    <i class="fa fa-cog"></i>
-                                </a>
-                                <a href="javascript:;" class="reload">
-                                    <i class="fa fa-refresh"></i>
-                                </a>
-                                <a href="javascript:;" class="collapse">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a href="javascript:;" class="remove">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
+                            <h4><i class="fa fa-bars"></i>订单情况</h4>
                         </div>
                         <div class="box-body">
-                            <div id="chart-revenue" style="height:240px"></div>
+                            <div class="row" id="orderDetails">
+                                
+                            </div>
                         </div>
                     </div>
+                    <!-- /LABELLED BIG BUTTONS -->
                 </div>
-                <!-- /COLUMN 2 -->
             </div>
-            <!-- /DASHBOARD CONTENT -->
             <div class="footer-tools">
                 <span class="go-top">
-                    <i class="fa fa-chevron-up"></i> Top
+                    <i class="fa fa-chevron-up"></i> 回到顶部
                 </span>
             </div>
         </div><!-- /CONTENT-->
     </div>
 </div>
 
+<script id="Orders-template" type="text/html">
+    <div class="col-md-4">
+        <a class="btn btn-danger btn-icon input-block-level" href="/Order/Index">
+            <div>新订单</div>
+            <span class="label label-right label-warning">{{New}}</span>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="btn btn-primary btn-icon input-block-level" href="/Order/Index">
+            <div>处理中</div>
+            <span class="label label-right label-danger">{{Dealing}}</span>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="btn btn-pink btn-icon input-block-level" href="/Order/Index">
+            <div>已完成</div>
+            <span class="label label-right label-info">{{Complete}}</span>
+        </a>
+    </div>
+</script>
+
 <script>
     jQuery(document).ready(function () {
         App.setPage("index");  //Set current page
         App.init(); //Initialise plugins and elements
+        App.globalAjax("get", "/Order/MyJsonListCount", {}, function (result) {
+            var html = template('Orders-template', result.Data);
+            $("#orderDetails").html(html);
+        });
     });
 </script>
 <!-- /JAVASCRIPTS -->

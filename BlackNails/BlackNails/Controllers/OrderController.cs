@@ -106,5 +106,23 @@ namespace BlackNails.Controllers
             resonse.Data = _OrderModel;
             return Json(resonse, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public ActionResult MyJsonListCount()
+        {
+            var Role = Session["RoleName"].ToString();
+            var OrderJson = _OrderServices.FindList().ToList();
+
+            Dictionary<string, object> dic = new Dictionary<string, object>();
+            dic.Add("New", _OrderServices.FindList().Where(om => om.Status == "新订单").Count());
+            dic.Add("Dealing", _OrderServices.FindList().Where(om => om.Status == "处理中").Count());
+            dic.Add("Complete", _OrderServices.FindList().Where(om => om.Status == "已完成").Count());
+
+            var resonse = new Response();
+            resonse.Code = 0;
+            resonse.Message = "获取订单数量成功！";
+            resonse.Data = dic;
+            return Json(resonse, JsonRequestBehavior.AllowGet);
+        }
     }
 }
