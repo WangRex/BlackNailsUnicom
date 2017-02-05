@@ -1,0 +1,172 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- DATA TABLES -->
+<link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/datatables/media/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/datatables/media/assets/css/datatables.min.css" />
+<!-- SELECT2 -->
+<link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/select2/select2.min.css" />
+<!-- UNIFORM -->
+<link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/uniform/css/uniform.default.min.css" />
+
+<div class="container">
+    <!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
+    <div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">绑定外线员</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal " action="#">
+                        <input type="hidden" id="Order_ID" />
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="e1">外线员列表</label>
+                            <div class="col-md-10">
+                                <select id="e1" class="col-md-12">
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="bind();">绑定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /SAMPLE BOX CONFIGURATION MODAL FORM-->
+    <div class="row">
+        <div id="content" class="col-lg-12">
+            <!-- PAGE HEADER-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-header">
+                        <!-- STYLER -->
+                        <!-- /STYLER -->
+                        <!-- BREADCRUMBS -->
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i>
+                                <a href="javascript:void(0);">首页</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">订单管理</a>
+                            </li>
+                            <li>订单列表</li>
+                        </ul>
+                        <!-- /BREADCRUMBS -->
+                        <div class="clearfix">
+                            <h3 class="content-title pull-left">订单列表</h3>
+                        </div>
+                        <div class="description"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /PAGE HEADER -->
+            <!-- DATA TABLES -->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BOX -->
+                    <div class="box border green">
+                        <div class="box-title">
+                            <h4><i class="fa fa-table"></i>订单列表</h4>
+                        </div>
+                        <div class="box-body">
+                            <table id="datatable1" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>订单时间</th>
+                                        <th>订单地址</th>
+                                        <th>订单手机号</th>
+                                        <th>订单座机号</th>
+                                        <th>订单维修类型</th>
+                                        <th>订单状态</th>
+                                        <th>外线员</th>
+                                        <th>评价</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /BOX -->
+                </div>
+            </div>
+            <!-- /DATA TABLES -->
+            <div class="separator"></div>
+            <div class="footer-tools">
+                <span class="go-top">
+                    <i class="fa fa-chevron-up"></i> 顶部
+                </span>
+            </div>
+        </div><!-- /CONTENT-->
+    </div>
+</div>
+
+<script id="Orders-template" type="text/html">
+    {{each Data as value i}}
+    <tr class="gradeA">
+        <td>{{value.Time}}</td>
+        <td>{{value.Address}}</td>
+        <td>{{value.Phone}}</td>
+        <td>{{value.Tel}}</td>
+        <td>{{value.Type}}</td>
+        <td>{{value.Status}}</td>
+        <td>{{if value.Status == "新订单"}}<a href="#box-config" data-toggle="modal" class="config" onclick="bindData({{value.Order_ID}});">绑定</a>{{else}}{{value.OTMName}}{{/if}}</td>
+        <td>{{value.AssessmentContent}}</td>
+        <td>{{if value.Role == "超级管理员"}}<a href="/Order/ViewPage?Order_ID={{value.Order_ID}}">查看</a>{{else}}{{/if}}</td>
+    </tr>
+    {{/each}}
+</script>
+
+<script id="OutsideTroubleMans-template" type="text/html">
+    <option value="">--请选择--</option>
+    {{each Data as value i}}
+    <option value="{{value.OutsideTroubleMan_ID}}">{{value.Name}}</option>
+    {{/each}}
+</script>
+
+<!-- DATA TABLES -->
+<script type="text/javascript" src="~/Cloud_Admin/js/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="~/Cloud_Admin/js/datatables/media/assets/js/datatables.min.js"></script>
+<!-- SELECT2 -->
+<script type="text/javascript" src="~/Cloud_Admin/js/select2/select2.min.js"></script>
+<!-- UNIFORM -->
+<script type="text/javascript" src="~/Cloud_Admin/js/uniform/jquery.uniform.min.js"></script>
+
+<script>
+    function bindData(Order_ID) {
+        $("#Order_ID").val(Order_ID);
+    }
+    function bind() {
+        var Order_ID = $("#Order_ID").val();
+        var OTM_ID = $("#e1").val();
+        var data = { Order_ID: Order_ID, OTM_ID: OTM_ID };
+        App.globalAjax("post", "/Order/Bind", data, function (result) {
+            console.log(result);
+        });
+    }
+    jQuery(document).ready(function () {
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+        //Set current page
+        App.setPage("dynamic_table");
+        //Initialise plugins and elements
+        App.init();
+        App.globalAjax("get", "/Order/MyJsonList", {}, function (result) {
+            var html = template('Orders-template', result);
+            $("#datatable1").find("tbody").html(html);
+            $('#datatable1').dataTable({
+                "sPaginationType": "bs_full"
+            });
+        });
+        App.globalAjax("get", "/OutsideTroubleMan/MyJsonListSelect", { }, function (result) {
+            var html = template('OutsideTroubleMans-template', result);
+            $("#e1").html(html).select2();
+        });
+    });
+</script>
+<!-- /JAVASCRIPTS -->

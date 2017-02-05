@@ -1,0 +1,1455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DB1C6E7-B6D2-42FF-AD03-C6D883CC080B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BlackNails</RootNamespace>
+    <AssemblyName>BlackNails</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CommonClass\Fetch.cs" />
+    <Compile Include="CommonClass\GetIP.cs" />
+    <Compile Include="CommonClass\RegExp.cs" />
+    <Compile Include="CommonClass\SerializeHelper.cs" />
+    <Compile Include="CommonClass\StringUtil.cs" />
+    <Compile Include="Config\KeyValueElement.cs" />
+    <Compile Include="Config\KeyValueElementCollection.cs" />
+    <Compile Include="Config\UploadConfig.cs" />
+    <Compile Include="Controllers\AssessmentController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MVC5_BaseController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OutsideTroubleManController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="DAL\AssessmentServices.cs" />
+    <Compile Include="DAL\AuthorizeAttribute.cs" />
+    <Compile Include="DAL\BaseManager.cs" />
+    <Compile Include="DAL\ContextFactory.cs" />
+    <Compile Include="DAL\DbContexts.cs" />
+    <Compile Include="DAL\DepartmentServices.cs" />
+    <Compile Include="DAL\General.cs" />
+    <Compile Include="DAL\OrderServices.cs" />
+    <Compile Include="DAL\Paging.cs" />
+    <Compile Include="DAL\Repository.cs" />
+    <Compile Include="DAL\Response.cs" />
+    <Compile Include="DAL\Security.cs" />
+    <Compile Include="DAL\UserServices.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AssessmentModel.cs" />
+    <Compile Include="Models\BaseModels.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="WebAPI\WebAPI2_BaseController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\BlackNails.mdf" />
+    <Content Include="App_Data\BlackNails_log.ldf">
+      <DependentUpon>BlackNails.mdf</DependentUpon>
+    </Content>
+    <Content Include="Cloud_Admin\bootstrap-dist\css\bootstrap-theme.css" />
+    <Content Include="Cloud_Admin\bootstrap-dist\css\bootstrap-theme.min.css" />
+    <Content Include="Cloud_Admin\bootstrap-dist\css\bootstrap.css" />
+    <Content Include="Cloud_Admin\bootstrap-dist\css\bootstrap.min.css" />
+    <Content Include="Cloud_Admin\bootstrap-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Cloud_Admin\bootstrap-dist\js\bootstrap.js" />
+    <Content Include="Cloud_Admin\bootstrap-dist\js\bootstrap.min.js" />
+    <Content Include="Cloud_Admin\css\animatecss\animate.min.css" />
+    <Content Include="Cloud_Admin\css\cloud-admin.css" />
+    <Content Include="Cloud_Admin\css\cloud-admin.min.css" />
+    <Content Include="Cloud_Admin\css\flags\flags.min.css" />
+    <Content Include="Cloud_Admin\css\flags\flags.png" />
+    <Content Include="Cloud_Admin\css\inbox.css" />
+    <Content Include="Cloud_Admin\css\print.css" />
+    <Content Include="Cloud_Admin\css\responsive.css" />
+    <Content Include="Cloud_Admin\css\responsive.min.css" />
+    <Content Include="Cloud_Admin\css\themes\default.css" />
+    <Content Include="Cloud_Admin\css\themes\default.min.css" />
+    <Content Include="Cloud_Admin\css\themes\earth.css" />
+    <Content Include="Cloud_Admin\css\themes\earth.min.css" />
+    <Content Include="Cloud_Admin\css\themes\graphite.css" />
+    <Content Include="Cloud_Admin\css\themes\graphite.min.css" />
+    <Content Include="Cloud_Admin\css\themes\nature.css" />
+    <Content Include="Cloud_Admin\css\themes\nature.min.css" />
+    <Content Include="Cloud_Admin\css\themes\night.css" />
+    <Content Include="Cloud_Admin\css\themes\night.min.css" />
+    <Content Include="Cloud_Admin\css\themes\utopia.css" />
+    <Content Include="Cloud_Admin\css\themes\utopia.min.css" />
+    <Content Include="Cloud_Admin\email_templates\email_template_layout_1.html" />
+    <Content Include="Cloud_Admin\email_templates\email_template_layout_2.html" />
+    <Content Include="Cloud_Admin\email_templates\email_template_layout_3.html" />
+    <Content Include="Cloud_Admin\email_templates\email_template_layout_4.html" />
+    <Content Include="Cloud_Admin\email_templates\email_template_layout_5.html" />
+    <Content Include="Cloud_Admin\email_templates\email_template_layout_6.html" />
+    <Content Include="Cloud_Admin\email_templates\email_template_layout_7.html" />
+    <Content Include="Cloud_Admin\font-awesome\css\font-awesome.css" />
+    <Content Include="Cloud_Admin\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Cloud_Admin\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\css\bootstrap-theme.css" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\css\bootstrap-theme.min.css" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\css\bootstrap.css" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\css\bootstrap.min.css" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\js\bootstrap.js" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\js\bootstrap.min.js" />
+    <Content Include="Cloud_Admin\frontend_theme\css\amimatecss\animate.min.css" />
+    <Content Include="Cloud_Admin\frontend_theme\css\carousel.css" />
+    <Content Include="Cloud_Admin\frontend_theme\css\cloud-admin-frontend.css" />
+    <Content Include="Cloud_Admin\frontend_theme\css\cloud-admin-frontend.min.css" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\css\font-awesome.css" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\bg.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\dots.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\gallery\1.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\gallery\2.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\gallery\3.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\gallery\4.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\gallery\5.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\gallery\7.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\gallery\8.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\img1.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\img2.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\img3.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\img4.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\logo\cloud.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\logo\logo-alt.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\logo\logo.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\parallax.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\pattern.png" />
+    <Content Include="Cloud_Admin\frontend_theme\img\testimonials\headshot1.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\testimonials\headshot2.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\testimonials\headshot3.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\testimonials\headshot4.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\testimonials\headshot5.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\img\testimonials\headshot6.jpg" />
+    <Content Include="Cloud_Admin\frontend_theme\index.html" />
+    <Content Include="Cloud_Admin\frontend_theme\js\colorbox\colorbox.min.css" />
+    <Content Include="Cloud_Admin\frontend_theme\js\colorbox\images\border.png" />
+    <Content Include="Cloud_Admin\frontend_theme\js\colorbox\images\controls.png" />
+    <Content Include="Cloud_Admin\frontend_theme\js\colorbox\images\loading.gif" />
+    <Content Include="Cloud_Admin\frontend_theme\js\colorbox\images\loading_background.png" />
+    <Content Include="Cloud_Admin\frontend_theme\js\colorbox\images\overlay.png" />
+    <Content Include="Cloud_Admin\frontend_theme\js\colorbox\jquery.colorbox.min.js" />
+    <Content Include="Cloud_Admin\frontend_theme\js\isotope\imagesloaded.pkgd.min.js" />
+    <Content Include="Cloud_Admin\frontend_theme\js\isotope\jquery.isotope.min.js" />
+    <Content Include="Cloud_Admin\frontend_theme\js\jquery-1.9.1.min.js" />
+    <Content Include="Cloud_Admin\frontend_theme\js\navmaster\jquery.nav.js" />
+    <Content Include="Cloud_Admin\frontend_theme\js\navmaster\jquery.scrollTo.js" />
+    <Content Include="Cloud_Admin\frontend_theme\js\script.js" />
+    <Content Include="Cloud_Admin\frontend_theme\js\script.non-min.js" />
+    <Content Include="Cloud_Admin\frontend_theme\js\waypoint\waypoints.min.js" />
+    <Content Include="Cloud_Admin\img\addressbook\1.jpg" />
+    <Content Include="Cloud_Admin\img\addressbook\2.jpg" />
+    <Content Include="Cloud_Admin\img\addressbook\3.jpg" />
+    <Content Include="Cloud_Admin\img\addressbook\4.jpg" />
+    <Content Include="Cloud_Admin\img\addressbook\5.jpg" />
+    <Content Include="Cloud_Admin\img\avatars\avatar1.jpg" />
+    <Content Include="Cloud_Admin\img\avatars\avatar2.jpg" />
+    <Content Include="Cloud_Admin\img\avatars\avatar3.jpg" />
+    <Content Include="Cloud_Admin\img\avatars\avatar4.jpg" />
+    <Content Include="Cloud_Admin\img\avatars\avatar5.jpg" />
+    <Content Include="Cloud_Admin\img\avatars\avatar6.jpg" />
+    <Content Include="Cloud_Admin\img\avatars\avatar7.jpg" />
+    <Content Include="Cloud_Admin\img\avatars\avatar8.jpg" />
+    <Content Include="Cloud_Admin\img\carousel\1.jpg" />
+    <Content Include="Cloud_Admin\img\carousel\2.jpg" />
+    <Content Include="Cloud_Admin\img\carousel\3.jpg" />
+    <Content Include="Cloud_Admin\img\chat-arrow-mod.png" />
+    <Content Include="Cloud_Admin\img\chat-arrow.png" />
+    <Content Include="Cloud_Admin\img\chat\headshot1.jpg" />
+    <Content Include="Cloud_Admin\img\chat\headshot2.jpg" />
+    <Content Include="Cloud_Admin\img\chat\headshot3.jpg" />
+    <Content Include="Cloud_Admin\img\chat\headshot4.jpg" />
+    <Content Include="Cloud_Admin\img\chat\headshot5.jpg" />
+    <Content Include="Cloud_Admin\img\dots.png" />
+    <Content Include="Cloud_Admin\img\gallery\1.png" />
+    <Content Include="Cloud_Admin\img\gallery\2.jpg" />
+    <Content Include="Cloud_Admin\img\gallery\3.png" />
+    <Content Include="Cloud_Admin\img\gallery\4.png" />
+    <Content Include="Cloud_Admin\img\gallery\5.png" />
+    <Content Include="Cloud_Admin\img\gallery\7.jpg" />
+    <Content Include="Cloud_Admin\img\gallery\8.png" />
+    <Content Include="Cloud_Admin\img\gallery\img\1.jpg" />
+    <Content Include="Cloud_Admin\img\gritter\buy.png" />
+    <Content Include="Cloud_Admin\img\gritter\cloud.png" />
+    <Content Include="Cloud_Admin\img\gritter\settings.png" />
+    <Content Include="Cloud_Admin\img\headshot.png" />
+    <Content Include="Cloud_Admin\img\inbox\1.jpg" />
+    <Content Include="Cloud_Admin\img\inbox\2.jpg" />
+    <Content Include="Cloud_Admin\img\inbox\3.jpg" />
+    <Content Include="Cloud_Admin\img\inbox\avatar.jpg" />
+    <Content Include="Cloud_Admin\img\light_noise_diagonal.png" />
+    <Content Include="Cloud_Admin\img\loaders\1.gif" />
+    <Content Include="Cloud_Admin\img\loaders\10.gif" />
+    <Content Include="Cloud_Admin\img\loaders\11.gif" />
+    <Content Include="Cloud_Admin\img\loaders\12.gif" />
+    <Content Include="Cloud_Admin\img\loaders\13.gif" />
+    <Content Include="Cloud_Admin\img\loaders\14.gif" />
+    <Content Include="Cloud_Admin\img\loaders\15.gif" />
+    <Content Include="Cloud_Admin\img\loaders\16.gif" />
+    <Content Include="Cloud_Admin\img\loaders\17.gif" />
+    <Content Include="Cloud_Admin\img\loaders\18.gif" />
+    <Content Include="Cloud_Admin\img\loaders\2.gif" />
+    <Content Include="Cloud_Admin\img\loaders\3.gif" />
+    <Content Include="Cloud_Admin\img\loaders\4.gif" />
+    <Content Include="Cloud_Admin\img\loaders\5.gif" />
+    <Content Include="Cloud_Admin\img\loaders\6.gif" />
+    <Content Include="Cloud_Admin\img\loaders\7.gif" />
+    <Content Include="Cloud_Admin\img\loaders\8.gif" />
+    <Content Include="Cloud_Admin\img\loaders\9.gif" />
+    <Content Include="Cloud_Admin\img\loaders\loading.gif" />
+    <Content Include="Cloud_Admin\img\lockscreen.png" />
+    <Content Include="Cloud_Admin\img\login\1.jpg" />
+    <Content Include="Cloud_Admin\img\login\2.jpg" />
+    <Content Include="Cloud_Admin\img\login\3.jpg" />
+    <Content Include="Cloud_Admin\img\login\4.jpg" />
+    <Content Include="Cloud_Admin\img\login\5.jpg" />
+    <Content Include="Cloud_Admin\img\logo\cloud.png" />
+    <Content Include="Cloud_Admin\img\logo\logo-alt.png" />
+    <Content Include="Cloud_Admin\img\logo\logo.png" />
+    <Content Include="Cloud_Admin\img\pattern.png" />
+    <Content Include="Cloud_Admin\img\profile\avatar.jpg" />
+    <Content Include="Cloud_Admin\img\search-icon.png" />
+    <Content Include="Cloud_Admin\img\search\sample.jpg" />
+    <Content Include="Cloud_Admin\img\sidebar-menu-arrow.png" />
+    <Content Include="Cloud_Admin\img\slider\handle.png" />
+    <Content Include="Cloud_Admin\img\slider\handlev.png" />
+    <Content Include="Cloud_Admin\js\autosize\jquery.autosize.min.js" />
+    <Content Include="Cloud_Admin\js\backstretch\jquery.backstretch.min.js" />
+    <Content Include="Cloud_Admin\js\blueimp\gallery\blueimp-gallery.min.css" />
+    <Content Include="Cloud_Admin\js\blueimp\gallery\jquery.blueimp-gallery.min.js" />
+    <Content Include="Cloud_Admin\js\blueimp\javascript-canvas-to-blob\canvas-to-blob.min.js" />
+    <Content Include="Cloud_Admin\js\blueimp\javascript-loadimg\load-image.min.js" />
+    <Content Include="Cloud_Admin\js\blueimp\javascript-template\tmpl.min.js" />
+    <Content Include="Cloud_Admin\js\bootbox\bootbox.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="Cloud_Admin\js\bootstrap-daterangepicker\daterangepicker.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-daterangepicker\moment.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-fileupload\bootstrap-fileupload.min.css" />
+    <Content Include="Cloud_Admin\js\bootstrap-fileupload\bootstrap-fileupload.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-inputmask\bootstrap-inputmask.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-markdown\css\bootstrap-markdown.min.css" />
+    <Content Include="Cloud_Admin\js\bootstrap-markdown\js\bootstrap-markdown.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-markdown\js\bootstrap-markdown.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-markdown\js\markdown.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-markdown\js\to-markdown.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-onhover\twitter-bootstrap-hover-dropdown.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-switch\bootstrap-switch.min.css" />
+    <Content Include="Cloud_Admin\js\bootstrap-switch\bootstrap-switch.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-wizard\form-wizard.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-wizard\form-wizard.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-wizard\jquery.bootstrap.wizard.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-wizard\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-wizard\wizard.css" />
+    <Content Include="Cloud_Admin\js\bootstrap-wysiwyg\bootstrap-wysiwyg.min.js" />
+    <Content Include="Cloud_Admin\js\bootstrap-wysiwyg\jquery.hotkeys.min.js" />
+    <Content Include="Cloud_Admin\js\charts.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\adapters\jquery.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\build-config.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\ckeditor.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\config.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\contents.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\af.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ar.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\bg.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\bn.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\bs.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ca.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\cs.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\cy.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\da.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\de.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\el.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\en-au.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\en-ca.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\en-gb.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\en.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\eo.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\es.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\et.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\eu.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\fa.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\fi.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\fo.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\fr-ca.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\fr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\gl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\gu.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\he.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\hi.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\hr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\hu.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\id.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\is.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\it.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ja.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ka.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\km.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ko.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ku.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\lt.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\lv.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\mk.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\mn.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ms.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\nb.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\nl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\no.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\pl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\pt-br.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\pt.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ro.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ru.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\si.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\sk.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\sl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\sq.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\sr-latn.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\sr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\sv.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\th.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\tr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\ug.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\uk.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\vi.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\zh-cn.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\lang\zh.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\div\dialogs\div.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\fakeobjects\images\spacer.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\find\dialogs\find.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\flash\dialogs\flash.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\flash\images\placeholder.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\forms\dialogs\button.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\forms\dialogs\form.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\forms\dialogs\radio.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\forms\dialogs\select.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\forms\dialogs\textarea.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\forms\dialogs\textfield.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\icons.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\iframe\images\placeholder.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\preview\preview.html" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_address.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_div.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_h1.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_h2.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_h3.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_h4.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_h5.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_h6.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_p.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\showblocks\images\block_pre.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\embarrassed_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\envelope.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\heart.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\kiss.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\tongue_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\templates\dialogs\templates.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\templates\dialogs\templates.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\templates\templates\default.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\templates\templates\images\template1.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\templates\templates\images\template2.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\templates\templates\images\template3.gif" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\wsc\dialogs\tmp.html" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\dialog.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\dialog_ie.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\dialog_ie7.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\dialog_ie8.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\dialog_opera.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\editor.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\editor_gecko.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\editor_ie.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\editor_ie7.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\editor_ie8.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\editor_iequirks.css" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\icons.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\icons_hidpi.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\images\arrow.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\images\close.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\images\hidpi\close.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\images\hidpi\lock-open.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\images\hidpi\lock.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\images\hidpi\refresh.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\images\lock-open.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\images\lock.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\images\refresh.png" />
+    <Content Include="Cloud_Admin\js\ckeditor\styles.js" />
+    <Content Include="Cloud_Admin\js\colorbox\colorbox.min.css" />
+    <Content Include="Cloud_Admin\js\colorbox\images\border.png" />
+    <Content Include="Cloud_Admin\js\colorbox\images\controls.png" />
+    <Content Include="Cloud_Admin\js\colorbox\images\loading.gif" />
+    <Content Include="Cloud_Admin\js\colorbox\images\loading_background.png" />
+    <Content Include="Cloud_Admin\js\colorbox\images\overlay.png" />
+    <Content Include="Cloud_Admin\js\colorbox\jquery.colorbox.min.js" />
+    <Content Include="Cloud_Admin\js\colorpicker\css\colorpicker.min.css" />
+    <Content Include="Cloud_Admin\js\colorpicker\img\alpha.png" />
+    <Content Include="Cloud_Admin\js\colorpicker\img\hue.png" />
+    <Content Include="Cloud_Admin\js\colorpicker\img\saturation.png" />
+    <Content Include="Cloud_Admin\js\colorpicker\js\bootstrap-colorpicker.min.js" />
+    <Content Include="Cloud_Admin\js\countable\jquery.simplyCountable.min.js" />
+    <Content Include="Cloud_Admin\js\d3\d3.v3.js" />
+    <Content Include="Cloud_Admin\js\d3\d3.v3.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\callbacks.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\columns.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\inputs.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\css\AutoFill.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\02ff627f40.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\36456bf45f.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\47cac4f141.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\5a72546831.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\8ee4007a12.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\a69b02bcf2.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\AutoFill.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\b44bd4821a.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\c6945fdb4a.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\global.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\css\doc.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\css\shCore.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\images\arrow.jpg" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\images\arrow.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\images\extended.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\js\doc.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\js\jquery.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\js\shCore.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\images\filler.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\js\AutoFill.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\js\AutoFill.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\scrolling.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\alt_insert.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\colvis.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\col_filter.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\fixedcolumns.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\fixedheader.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\css\ColReorder.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\46848f6f3b.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\4f1246032c.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\a69b02bcf2.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\ColReorder.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\global.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\css\doc.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\css\shCore.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\images\arrow.jpg" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\images\arrow.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\images\extended.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\js\doc.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\js\jquery.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\js\shCore.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\images\insert.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\js\ColReorder.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\js\ColReorder.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\predefined.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\reset.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\scrolling.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\server_side.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\state_save.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\theme.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\exclude_columns.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\css\ColVis.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\css\ColVisAlt.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\a69b02bcf2.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\ccb5a49865.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\ColVis.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\global.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\css\doc.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\css\shCore.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\images\arrow.jpg" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\images\arrow.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\images\extended.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\js\doc.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\js\jquery.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\js\shCore.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\images\button.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\js\ColVis.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\js\ColVis.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\mouseover.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\style.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\text.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\theme.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\title_callback.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\two_tables.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\two_tables_identical.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\col_filter.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\css_size.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\070023b890.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\526f872207.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\73098af57c.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\889588ec06.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\91bce7c4ad.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\a6bd52f587.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\d3890ba7c4.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\e20106c59a.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\FixedColumns.defaults.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\FixedColumns.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\global.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\css\doc.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\css\shCore.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\images\arrow.jpg" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\images\arrow.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\images\extended.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\js\doc.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\js\jquery.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\js\shBrushJScript.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\js\shCore.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\index_column.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\left_right_columns.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\media\js\FixedColumns.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\media\js\FixedColumns.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\right_column.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\rowspan.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\row_grouping.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\row_grouping_height.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\scale_fixed.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\scale_relative.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\server-side-processing.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\themed.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\two_columns.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\x_y_scrolling.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedHeader\html_table.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedHeader\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedHeader\js\FixedHeader.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedHeader\js\FixedHeader.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedHeader\top_bottom_left_right.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedHeader\top_left.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedHeader\two_tables.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedHeader\zIndexes.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\KeyTable\datatable.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\KeyTable\datatable_scrolling.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\KeyTable\editing.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\KeyTable\form.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\KeyTable\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\KeyTable\js\KeyTable.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\KeyTable\js\KeyTable.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\api_scrolling.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\large_js_source.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\css\dataTables.scroller.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\data\2500.txt" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\baed189d4a.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\c6053fac6b.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\css\doc.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\css\shCore.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\images\arrow.jpg" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\images\arrow.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\images\extended.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\js\doc.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\js\jquery.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\js\shCore.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\Scroller.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\Scroller.oDefaults.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\images\loading-background.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\js\dataTables.scroller.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\js\dataTables.scroller.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\server-side_processing.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\state_saving.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\alter_buttons.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\alt_init.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\bootstrap.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\button_text.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\collection.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\defaults.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\index.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\css\TableTools.min.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\css\TableTools_JUI.css" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\background.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\collection.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\collection_hover.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\copy.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\copy_hover.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\csv.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\csv_hover.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\pdf.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\pdf_hover.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\print.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\print_hover.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\xls.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\xls_hover.png" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\js\TableTools.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\js\ZeroClipboard.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\swf\copy_csv_xls.swf" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\multiple_tables.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\multi_instance.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\pdf_message.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\plug-in.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\select_multi.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\select_single.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\swf_path.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\tabs.html" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\theme.html" />
+    <Content Include="Cloud_Admin\js\datatables\media\assets\css\datatables.min.css" />
+    <Content Include="Cloud_Admin\js\datatables\media\assets\images\sort_asc.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\assets\images\sort_asc_disabled.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\assets\images\sort_both.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\assets\images\sort_desc.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\assets\images\sort_desc_disabled.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\assets\js\datatables.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\media\css\demo_page.css" />
+    <Content Include="Cloud_Admin\js\datatables\media\css\demo_table.css" />
+    <Content Include="Cloud_Admin\js\datatables\media\css\demo_table_jui.css" />
+    <Content Include="Cloud_Admin\js\datatables\media\css\jquery.dataTables.min.css" />
+    <Content Include="Cloud_Admin\js\datatables\media\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\back_disabled.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\back_enabled.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\back_enabled_hover.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\favicon.ico" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\forward_disabled.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\forward_enabled.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\forward_enabled_hover.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\sort_asc.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\sort_asc_disabled.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\sort_both.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\sort_desc.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\sort_desc_disabled.png" />
+    <Content Include="Cloud_Admin\js\datatables\media\js\jquery.dataTables.js" />
+    <Content Include="Cloud_Admin\js\datatables\media\js\jquery.dataTables.min.js" />
+    <Content Include="Cloud_Admin\js\datatables\media\js\jquery.js" />
+    <Content Include="Cloud_Admin\js\datepicker\legacy.js" />
+    <Content Include="Cloud_Admin\js\datepicker\picker.date.js" />
+    <Content Include="Cloud_Admin\js\datepicker\picker.js" />
+    <Content Include="Cloud_Admin\js\datepicker\picker.time.js" />
+    <Content Include="Cloud_Admin\js\datepicker\themes\default.date.min.css" />
+    <Content Include="Cloud_Admin\js\datepicker\themes\default.min.css" />
+    <Content Include="Cloud_Admin\js\datepicker\themes\default.time.min.css" />
+    <Content Include="Cloud_Admin\js\dropzone\dropzone.min.css" />
+    <Content Include="Cloud_Admin\js\dropzone\dropzone.min.js" />
+    <Content Include="Cloud_Admin\js\dropzone\spritemap%402x.png" />
+    <Content Include="Cloud_Admin\js\dropzone\spritemap.png" />
+    <Content Include="Cloud_Admin\js\easypiechart\angular.easypiechart.min.js" />
+    <Content Include="Cloud_Admin\js\easypiechart\easypiechart.min.js" />
+    <Content Include="Cloud_Admin\js\easypiechart\jquery.easypiechart.min.js" />
+    <Content Include="Cloud_Admin\js\flot-growraf\jquery.flot.growraf.min.js" />
+    <Content Include="Cloud_Admin\js\flot\excanvas.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.colorhelpers.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.canvas.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.categories.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.errorbars.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.image.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.navigate.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.pie.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.resize.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.selection.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.stack.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.symbol.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.threshold.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.flot.time.min.js" />
+    <Content Include="Cloud_Admin\js\flot\jquery.min.js" />
+    <Content Include="Cloud_Admin\js\fuelux-tree\fuelux-responsive.min.css" />
+    <Content Include="Cloud_Admin\js\fuelux-tree\fuelux.min.css" />
+    <Content Include="Cloud_Admin\js\fuelux-tree\fuelux.tree-sampledata.js" />
+    <Content Include="Cloud_Admin\js\fuelux-tree\fuelux.tree.min.js" />
+    <Content Include="Cloud_Admin\js\fuelux-tree\tree.min.js" />
+    <Content Include="Cloud_Admin\js\fullcalendar\fullcalendar.min.css" />
+    <Content Include="Cloud_Admin\js\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Cloud_Admin\js\fullcalendar\fullcalendar.print.css" />
+    <Content Include="Cloud_Admin\js\fullcalendar\gcal.js" />
+    <Content Include="Cloud_Admin\js\gmaps\gmaps.min.js" />
+    <Content Include="Cloud_Admin\js\googlemaps.js" />
+    <Content Include="Cloud_Admin\js\gritter\css\jquery.gritter.css" />
+    <Content Include="Cloud_Admin\js\gritter\images\gritter-light.png" />
+    <Content Include="Cloud_Admin\js\gritter\images\gritter-long.png" />
+    <Content Include="Cloud_Admin\js\gritter\images\gritter.png" />
+    <Content Include="Cloud_Admin\js\gritter\images\ie-spacer.gif" />
+    <Content Include="Cloud_Admin\js\gritter\js\jquery.gritter.min.js" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\css\messenger-spinner.min.css" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\css\messenger-theme-air.min.css" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\css\messenger-theme-block.min.css" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\css\messenger-theme-flat.min.css" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\css\messenger-theme-future.min.css" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\css\messenger-theme-ice.min.css" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\css\messenger.min.css" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\js\messenger-theme-flat.js" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\js\messenger-theme-future.js" />
+    <Content Include="Cloud_Admin\js\hubspot-messenger\js\messenger.min.js" />
+    <Content Include="Cloud_Admin\js\inbox.js" />
+    <Content Include="Cloud_Admin\js\isotope\imagesloaded.pkgd.min.js" />
+    <Content Include="Cloud_Admin\js\isotope\jquery.isotope.min.js" />
+    <Content Include="Cloud_Admin\js\jqgrid\css\ui.jqgrid.min.css" />
+    <Content Include="Cloud_Admin\js\jqgrid\js\grid.locale-en.min.js" />
+    <Content Include="Cloud_Admin\js\jqgrid\js\jquery.jqGrid.min.js" />
+    <Content Include="Cloud_Admin\js\jQuery-BlockUI\jquery.blockUI.min.js" />
+    <Content Include="Cloud_Admin\js\jQuery-Cookie\jquery.cookie.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Cloud_Admin\js\jQuery-Knob\js\jquery.knob.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\0.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\1.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\2.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\3.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\4.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\5.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\cancel-custom-off.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\cancel-custom-on.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\cancel-off-big.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\cancel-off.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\cancel-on-big.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\cancel-on.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\cookie-half.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\cookie-off.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\cookie-on.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\off.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\on.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\star-half-big.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\star-half.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\star-off-big.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\star-off.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\star-on-big.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\img\star-on.png" />
+    <Content Include="Cloud_Admin\js\jquery-raty\jquery.raty.min.js" />
+    <Content Include="Cloud_Admin\js\jQuery-slimScroll-1.3.0\jquery.slimscroll.min.js" />
+    <Content Include="Cloud_Admin\js\jQuery-slimScroll-1.3.0\slimScrollHorizontal.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-todo\css\styles.css" />
+    <Content Include="Cloud_Admin\js\jquery-todo\js\paddystodolist.js" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\animated-overlay.gif" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-bg_flat_100_eeeeee_40x100.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-bg_flat_100_f6f6f6_40x100.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-bg_flat_15_5E87B0_40x100.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-bg_flat_55_fbf8ee_40x100.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-icons_004276_256x240.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-icons_333333_256x240.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-icons_555555_256x240.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-icons_5E87B0_256x240.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\css\custom-theme\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\js\jquery-1.9.1.js" />
+    <Content Include="Cloud_Admin\js\jquery-ui-1.10.3.custom\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\css\demo-ie8.css" />
+    <Content Include="Cloud_Admin\js\jquery-upload\css\demo.css" />
+    <Content Include="Cloud_Admin\js\jquery-upload\css\jquery.fileupload-noscript.css" />
+    <Content Include="Cloud_Admin\js\jquery-upload\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Cloud_Admin\js\jquery-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="Cloud_Admin\js\jquery-upload\css\jquery.fileupload.css" />
+    <Content Include="Cloud_Admin\js\jquery-upload\css\style.css" />
+    <Content Include="Cloud_Admin\js\jquery-upload\img\loading.gif" />
+    <Content Include="Cloud_Admin\js\jquery-upload\img\progressbar.gif" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\app.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.fileupload-angular.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.fileupload-audio.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.fileupload-image.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.fileupload-process.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.fileupload-ui.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.fileupload-validate.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.fileupload-video.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.fileupload.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\jquery.iframe-transport.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\main.js" />
+    <Content Include="Cloud_Admin\js\jquery-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Cloud_Admin\js\jquery-validate\additional-methods.js" />
+    <Content Include="Cloud_Admin\js\jquery-validate\additional-methods.min.js" />
+    <Content Include="Cloud_Admin\js\jquery-validate\jquery.validate.js" />
+    <Content Include="Cloud_Admin\js\jquery-validate\jquery.validate.min.js" />
+    <Content Include="Cloud_Admin\js\jquery\jquery-2.0.3.min.js" />
+    <Content Include="Cloud_Admin\js\jquery\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\data\jquery.vmap.sampledata.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\jquery.vmap.min.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\jquery.vmap.packed.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\jqvmap.css" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\continents\jquery.vmap.africa.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\continents\jquery.vmap.asia.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\continents\jquery.vmap.australia.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\continents\jquery.vmap.europe.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\continents\jquery.vmap.north-america.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\continents\jquery.vmap.south-america.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\continents\readme.txt" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\jquery.vmap.algeria.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\jquery.vmap.europe.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\jquery.vmap.france.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\jquery.vmap.germany.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\jquery.vmap.russia.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\jquery.vmap.usa.js" />
+    <Content Include="Cloud_Admin\js\jqvmap\maps\jquery.vmap.world.js" />
+    <Content Include="Cloud_Admin\js\justgage\js\justgage.1.0.1.js" />
+    <Content Include="Cloud_Admin\js\justgage\js\justgage.1.0.1.min.js" />
+    <Content Include="Cloud_Admin\js\justgage\js\raphael.2.1.0.min.js" />
+    <Content Include="Cloud_Admin\js\magic-suggest\magicsuggest-1.3.1-min.css" />
+    <Content Include="Cloud_Admin\js\magic-suggest\magicsuggest-1.3.1-min.js" />
+    <Content Include="Cloud_Admin\js\navmaster\jquery.nav.js" />
+    <Content Include="Cloud_Admin\js\navmaster\jquery.scrollTo.js" />
+    <Content Include="Cloud_Admin\js\nestable\jquery.nestable.min.js" />
+    <Content Include="Cloud_Admin\js\prettify\prettify.css" />
+    <Content Include="Cloud_Admin\js\prettify\prettify.js" />
+    <Content Include="Cloud_Admin\js\script.js" />
+    <Content Include="Cloud_Admin\js\select2\select2-spinner.gif" />
+    <Content Include="Cloud_Admin\js\select2\select2.min.css" />
+    <Content Include="Cloud_Admin\js\select2\select2.min.js" />
+    <Content Include="Cloud_Admin\js\select2\select2.png" />
+    <Content Include="Cloud_Admin\js\select2\select2x2.png" />
+    <Content Include="Cloud_Admin\js\slidernav\slidernav.css" />
+    <Content Include="Cloud_Admin\js\slidernav\slidernav.js" />
+    <Content Include="Cloud_Admin\js\sparklines\jquery.sparkline.min.js" />
+    <Content Include="Cloud_Admin\js\tablecloth\css\bootstrap-responsive.css" />
+    <Content Include="Cloud_Admin\js\tablecloth\css\bootstrap-responsive.min.css" />
+    <Content Include="Cloud_Admin\js\tablecloth\css\bootstrap-tables.css" />
+    <Content Include="Cloud_Admin\js\tablecloth\css\bootstrap.css" />
+    <Content Include="Cloud_Admin\js\tablecloth\css\bootstrap.min.css" />
+    <Content Include="Cloud_Admin\js\tablecloth\css\prettify.css" />
+    <Content Include="Cloud_Admin\js\tablecloth\css\tablecloth.min.css" />
+    <Content Include="Cloud_Admin\js\tablecloth\img\asc.gif" />
+    <Content Include="Cloud_Admin\js\tablecloth\img\asc_light.gif" />
+    <Content Include="Cloud_Admin\js\tablecloth\img\desc.gif" />
+    <Content Include="Cloud_Admin\js\tablecloth\img\desc_light.gif" />
+    <Content Include="Cloud_Admin\js\tablecloth\img\glyphicons-halflings-white.png" />
+    <Content Include="Cloud_Admin\js\tablecloth\img\glyphicons-halflings.png" />
+    <Content Include="Cloud_Admin\js\tablecloth\js\bootstrap.js" />
+    <Content Include="Cloud_Admin\js\tablecloth\js\bootstrap.min.js" />
+    <Content Include="Cloud_Admin\js\tablecloth\js\jquery-1.7.2.min.js" />
+    <Content Include="Cloud_Admin\js\tablecloth\js\jquery.metadata.js" />
+    <Content Include="Cloud_Admin\js\tablecloth\js\jquery.tablecloth.js" />
+    <Content Include="Cloud_Admin\js\tablecloth\js\jquery.tablesorter.js" />
+    <Content Include="Cloud_Admin\js\tablecloth\js\jquery.tablesorter.min.js" />
+    <Content Include="Cloud_Admin\js\timeago\jquery.timeago.min.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\blank.gif" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\fancybox_sprite%402x.png" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\fancybox_sprite.png" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\loading.gif" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\dark.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\AbrilFatface-Average.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\Arvo-PTSans.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\Bevan-PotanoSans.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\BreeSerif-OpenSans.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\DroidSerif-DroidSans.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\Georgia-Helvetica.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\Lekton-Molengo.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\Lora-Istok.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\Merriweather-NewsCycle.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\NewsCycle-Merriweather.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\NixieOne-Ledger.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\Pacifico-Arimo.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\PlayfairDisplay-Muli.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\PoiretOne-Molengo.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\PT.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\PTSerif-PTSans.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\Rancho-Gudea.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\font\SansitaOne-Kameron.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\timeline-dark%402x.png" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\timeline-dark.png" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\themes\timeline-texture.png" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\timeline%402x.png" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\timeline.css" />
+    <Content Include="Cloud_Admin\js\timelinejs\css\timeline.png" />
+    <Content Include="Cloud_Admin\js\timelinejs\embed\index.html" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\af.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\ar.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\bg.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\ca.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\cz.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\da.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\de.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\el.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\en-24hr.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\en.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\es.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\eu.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\fi.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\fo.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\fr.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\gl.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\he.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\hu.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\hy.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\id.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\is.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\it.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\iw.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\ja.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\ka.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\ko.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\lb.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\lv.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\nl.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\no.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\pl.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\pt-br.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\pt.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\ru.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\si.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\sk.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\sl.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\sr-cy.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\sr.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\sv.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\ta.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\tl.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\tr.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\zh-cn.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\locale\zh-tw.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\storyjs-embed-cdn.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\storyjs-embed-generator.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\storyjs-embed.min.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\timeline-min.js" />
+    <Content Include="Cloud_Admin\js\timelinejs\js\timeline.js" />
+    <Content Include="Cloud_Admin\js\typeahead\typeahead.css" />
+    <Content Include="Cloud_Admin\js\typeahead\typeahead.min.js" />
+    <Content Include="Cloud_Admin\js\uniform\css\uniform.default.min.css" />
+    <Content Include="Cloud_Admin\js\uniform\images\bg-input-focus.png" />
+    <Content Include="Cloud_Admin\js\uniform\images\bg-input.png" />
+    <Content Include="Cloud_Admin\js\uniform\images\sprite.png" />
+    <Content Include="Cloud_Admin\js\uniform\jquery.uniform.min.js" />
+    <Content Include="Cloud_Admin\js\vertical-timeline\css\style.css" />
+    <Content Include="Cloud_Admin\js\vertical-timeline\img\button-up-down-arrow.png" />
+    <Content Include="Cloud_Admin\js\vertical-timeline\img\tab-left.png" />
+    <Content Include="Cloud_Admin\js\vertical-timeline\img\tab-right.png" />
+    <Content Include="Cloud_Admin\js\vertical-timeline\js\handlebars.js" />
+    <Content Include="Cloud_Admin\js\vertical-timeline\js\libs\modernizr-2.5.3.min.js" />
+    <Content Include="Cloud_Admin\js\vertical-timeline\js\plugins.js" />
+    <Content Include="Cloud_Admin\js\vertical-timeline\js\script.js" />
+    <Content Include="Cloud_Admin\js\vertical-timeline\js\tabletop.js" />
+    <Content Include="Cloud_Admin\js\xcharts\xcharts.css" />
+    <Content Include="Cloud_Admin\js\xcharts\xcharts.js" />
+    <Content Include="Cloud_Admin\js\xcharts\xcharts.min.css" />
+    <Content Include="Cloud_Admin\js\xcharts\xcharts.min.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Config\Upload.config" />
+    <Content Include="Cloud_Admin\bootstrap-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Cloud_Admin\bootstrap-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Cloud_Admin\bootstrap-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Cloud_Admin\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Cloud_Admin\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Cloud_Admin\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Cloud_Admin\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Cloud_Admin\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\core.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\fixed-width.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\font-awesome.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\icons.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\larger.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\list.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\mixins.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\path.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\spinning.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\stacked.less" />
+    <Content Include="Cloud_Admin\font-awesome\less\variables.less" />
+    <Content Include="Cloud_Admin\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_core.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_icons.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_larger.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_list.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_mixins.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_path.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_spinning.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_stacked.scss" />
+    <Content Include="Cloud_Admin\font-awesome\scss\_variables.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Cloud_Admin\frontend_theme\bootstrap-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\core.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\fixed-width.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\font-awesome.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\icons.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\larger.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\list.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\mixins.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\path.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\spinning.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\stacked.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\less\variables.less" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_core.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_icons.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_larger.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_list.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_mixins.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_path.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_spinning.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_stacked.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\font-awesome\scss\_variables.scss" />
+    <Content Include="Cloud_Admin\frontend_theme\img\gallery\Thumbs.db" />
+    <Content Include="Cloud_Admin\frontend_theme\img\logo\Thumbs.db" />
+    <Content Include="Cloud_Admin\frontend_theme\img\testimonials\Thumbs.db" />
+    <Content Include="Cloud_Admin\frontend_theme\img\Thumbs.db" />
+    <Content Include="Cloud_Admin\img\logo\Cloud.psd" />
+    <Content Include="Cloud_Admin\img\logo\Thumbs.db" />
+    <Content Include="Cloud_Admin\img\Thumbs.db" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\scayt\README.md" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="Cloud_Admin\js\ckeditor\plugins\wsc\README.md" />
+    <Content Include="Cloud_Admin\js\ckeditor\skins\moono\readme.md" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\docs\media\license\Syntax Highlighter" />
+    <Content Include="Cloud_Admin\js\datatables\extras\AutoFill\media\js\AutoFill.min.js.gz" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\docs\media\license\Syntax Highlighter" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColReorder\media\js\ColReorder.min.js.gz" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\docs\media\license\Syntax Highlighter" />
+    <Content Include="Cloud_Admin\js\datatables\extras\ColVis\media\js\ColVis.min.js.gz" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\docs\media\license\Syntax Highlighter" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedColumns\media\js\FixedColumns.min.js.gz" />
+    <Content Include="Cloud_Admin\js\datatables\extras\FixedHeader\js\FixedHeader.min.js.gz" />
+    <Content Include="Cloud_Admin\js\datatables\extras\KeyTable\js\KeyTable.min.js.gz" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\data\server_processing.php" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\docs\media\license\Syntax Highlighter" />
+    <Content Include="Cloud_Admin\js\datatables\extras\Scroller\media\js\dataTables.scroller.min.js.gz" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\as3\lib\AlivePDF.swc" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\as3\ZeroClipboard.as" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\as3\ZeroClipboardPdf.as" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\psd\collection.psd" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\psd\copy document.psd" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\psd\file_types.psd" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\images\psd\printer.psd" />
+    <Content Include="Cloud_Admin\js\datatables\extras\TableTools\media\js\TableTools.min.js.gz" />
+    <Content Include="Cloud_Admin\js\datatables\media\images\Sorting icons.psd" />
+    <Content Include="Cloud_Admin\js\easypiechart\jquery.easypiechart.min.js.2.0" />
+    <Content Include="Cloud_Admin\js\easypiechart\jquery.easypiechart.min.js.older" />
+    <Content Include="Cloud_Admin\js\jQuery-Knob\knob.jquery.json" />
+    <Content Include="Cloud_Admin\js\tablecloth\js\.DS_Store" />
+    <Content Include="Cloud_Admin\js\timelinejs\example_json.json" />
+    <Content Include="Cloud_Admin\js\xcharts\LICENSE" />
+    <Content Include="Cloud_Admin\js\xcharts\README.md" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\template.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\OutsideTroubleMan\Index.cshtml" />
+    <Content Include="Views\OutsideTroubleMan\Add.cshtml" />
+    <Content Include="Views\OutsideTroubleMan\ViewPage.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\ViewPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\Assessment\" />
+    <Folder Include="Views\Manage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>41232</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:41232/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

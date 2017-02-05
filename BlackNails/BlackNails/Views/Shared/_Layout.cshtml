@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 联通快易修</title>
+    @Styles.Render("~/Cloud_Admin/css")
+    @Scripts.Render("~/Cloud_Admin/js")
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar clearfix" id="header">
+        <div class="container">
+            <div class="navbar-brand">
+                <!-- COMPANY LOGO -->
+                <a href="javascript:void(0);">
+                    <img src="~/Cloud_Admin/img/logo/logo.png" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120">
+                </a>
+                <!-- /COMPANY LOGO -->
+                <!-- TEAM STATUS FOR MOBILE -->
+                <div class="visible-xs">
+                    <a href="#" class="team-status-toggle switcher btn dropdown-toggle">
+                        <i class="fa fa-users"></i>
+                    </a>
+                </div>
+                <!-- /TEAM STATUS FOR MOBILE -->
+                <!-- SIDEBAR COLLAPSE -->
+                <div id="sidebar-collapse" class="sidebar-collapse btn">
+                    <i class="fa fa-bars"
+                       data-icon1="fa fa-bars"
+                       data-icon2="fa fa-bars"></i>
+                </div>
+                <!-- /SIDEBAR COLLAPSE -->
+            </div>            
+            <!-- NAVBAR LEFT -->
+            <ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
+                
+            </ul>
+            <!-- /NAVBAR LEFT -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <ul class="nav navbar-nav pull-right">
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <li class="dropdown user" id="header-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img alt="" src="~/Cloud_Admin/img/avatars/avatar3.jpg" />
+                        <span class="username">@User.Identity.Name</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/User/Logout"><i class="fa fa-power-off"></i> 注销</a></li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+            </ul>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+    </header>
+    <!--/HEADER -->
+    <div class="copyrights"></div>
+    <!-- PAGE -->
+    <section id="page">
+        <!-- SIDEBAR -->
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-menu nav-collapse">
+                <div class="divide-20"></div>
+                <!-- SEARCH BAR -->
+                <div id="search-bar">
+                    <input class="search" type="text" placeholder="Search"><i class="fa fa-search search-icon"></i>
+                </div>
+                <!-- /SEARCH BAR -->
+                <!-- SIDEBAR QUICK-LAUNCH -->
+                <!-- <div id="quicklaunch">
+                <!-- /SIDEBAR QUICK-LAUNCH -->
+                <!-- SIDEBAR MENU -->
+                <ul>
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">首页</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">数据匹配</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="elements.html"><span class="sub-menu-text">添加数据</span></a></li>
+                            <li><a class="" href="notifications.html"><span class="sub-menu-text">匹配数据</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">外线员管理</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="/OutsideTroubleMan/Add"><span class="sub-menu-text">添加外线员</span></a></li>
+                            <li><a class="" href="/OutsideTroubleMan/Index"><span class="sub-menu-text">外线员列表</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">订单分配</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="/Order/Index"><span class="sub-menu-text">订单列表</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- /SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- /SIDEBAR -->
+        <div id="main-content">
+            @RenderBody()
+        </div>
+    </section>
+</body>
+</html>
