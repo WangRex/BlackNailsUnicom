@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- SELECT2 -->
+<link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/select2/select2.min.css" />
+<!-- UNIFORM -->
+<link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/uniform/css/uniform.default.min.css" />
+
+<div class="container">
+    <div class="row">
+        <div id="content" class="col-lg-12">
+            <!-- PAGE HEADER-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-header">
+                        <!-- STYLER -->
+                        <!-- /STYLER -->
+                        <!-- BREADCRUMBS -->
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i>
+                                <a href="javascript:void(0);">首页</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">客户数据管理</a>
+                            </li>
+                            <li>导入客户数据</li>
+                        </ul>
+                        <!-- /BREADCRUMBS -->
+                        <div class="clearfix">
+                            <h3 class="content-title pull-left">导入客户数据</h3>
+                        </div>
+                        <div class="description"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="box border green">
+                <div class="box-title">
+                    <h4><i class="fa fa-bars"></i>导入客户数据</h4>
+                </div>
+                <div class="box-body big">
+                    <form class="form-horizontal" role="form" action="/Customer/Upload" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">文件</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" name="excelFile" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-9">
+                                <button type="submit">导入</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SELECT2 -->
+<script type="text/javascript" src="~/Cloud_Admin/js/select2/select2.min.js"></script>
+<!-- UNIFORM -->
+<script type="text/javascript" src="~/Cloud_Admin/js/uniform/jquery.uniform.min.js"></script>
+
+<script>
+    jQuery(document).ready(function () {
+        //Set current page
+        App.setPage("forms");
+        //Initialise plugins and elements
+        App.init();
+        
+    });
+</script>
+<!-- /JAVASCRIPTS -->

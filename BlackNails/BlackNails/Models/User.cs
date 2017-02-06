@@ -199,4 +199,60 @@ namespace BlackNails.Models
         public string Remark { get; set; }
 
     }
+
+
+    /// <summary>
+    /// 客户数据模型
+    /// <remarks>
+    /// 创建：2017.02.06<br />
+    /// </remarks>
+    /// </summary>
+    public class CustomerModel : BaseModels
+    {
+        [Key]
+        public int Customer_ID { get; set; }
+
+        /// <summary>
+        /// 姓名
+        /// </summary>
+        [Display(Name = "姓名")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 电话
+        /// </summary>
+        [Display(Name = "电话")]
+        public string Phone { get; set; }
+
+        /// <summary>
+        /// 座机
+        /// </summary>
+        [Display(Name = "座机")]
+        public string Tel { get; set; }
+
+        /// <summary>
+        /// 住址
+        /// </summary>
+        [Display(Name = "住址")]
+        public string Address { get; set; }
+
+        /// <summary>
+        /// 住址街道/路
+        /// </summary>
+        [Display(Name = "住址街道/路")]
+        public string StreedRoad { get; set; }
+
+        /// <summary>
+        /// 街道/路号
+        /// </summary>
+        [Display(Name = "街道/路号")]
+        public string Number { get; set; }
+
+        /// <summary>
+        /// ONU
+        /// </summary>
+        [Display(Name = "ONU")]
+        public string ONU { get; set; }
+
+    }
 }

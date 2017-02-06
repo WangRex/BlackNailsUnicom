@@ -16,6 +16,9 @@ namespace BlackNails.DAL
         public DbSet<DepartmentModel> Departments { get; set; }
         public DbSet<OrderModel> Orders { get; set; }
         public DbSet<AssessmentModel> Assessments { get; set; }
+        public DbSet<MatchingModel> Matchings { get; set; }
+        public DbSet<CustomerModel> Customers { get; set; }
+
 
         /* 在程序包管理控制台输入“Enable-Migrations”命令启用迁移。
         * Migrations文件夹下的“Configuration.cs”，将构造函数中的“AutomaticMigrationsEnabled = false;”改为“AutomaticMigrationsEnabled = true;”
