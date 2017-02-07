@@ -12,7 +12,6 @@ using Newtonsoft.Json;
 using BlackNails.Config;
 using System.Collections;
 using System.IO;
-using BlackNails.Controllers;
 
 namespace BlackNails.User.Controllers
 {

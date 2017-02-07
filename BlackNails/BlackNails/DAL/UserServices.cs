@@ -278,4 +278,9 @@ namespace BlackNails.DAL
         }
 
     }
+
+    public class CustomerServices : BaseManager<CustomerModel>
+    {
+
+    }
 }
