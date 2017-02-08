@@ -12,17 +12,28 @@ namespace BlackNails.Controllers
     {
         private MatchingServices _MatchingServices = new MatchingServices();
         private OutsideTroubleManServices _OutsideTroubleManServices = new OutsideTroubleManServices();
-        public ActionResult Index()
+        public ActionResult Index(int OTM_ID)
         {
             ViewBag.Title = "匹配列表";
+            TempData.Add("OTM_ID", OTM_ID);
             return View();
         }
 
         [HttpGet]
-        public ActionResult MyJsonList()
+        public ActionResult MyJsonList(int OTM_ID)
         {
             var Role = Session["RoleName"].ToString();
             var MatchingJson = _MatchingServices.FindList().ToList();
+            if(OTM_ID == 0)
+            {
+                MatchingJson = MatchingJson.Where(mm => mm.OTM_ID == 0).ToList();
+            } else if(OTM_ID == -1)
+            {
+                MatchingJson = MatchingJson.Where(mm => mm.OTM_ID != 0).ToList();
+            } else
+            {
+                MatchingJson = MatchingJson.Where(mm => mm.OTM_ID == OTM_ID).ToList();
+            }
 
             var list = new List<object>();
             foreach (MatchingModel _MatchingModel in MatchingJson)

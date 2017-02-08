@@ -74,7 +74,7 @@ namespace BlackNails.Controllers
             dic.Add("OTMName", _OutsideTroubleManServices.getOTMName(_OrderModel.OTM_ID));
             dic.Add("Role", Role);
             dic.Add("Content", _AssessmentServices.getAssessment(_OrderModel.Assessment_ID).Content);
-            dic.Add("Star", _AssessmentServices.getAssessment(_OrderModel.Assessment_ID).Star);
+            dic.Add("Star", _AssessmentServices.getAssessment(_OrderModel.Assessment_ID).ComprehensiveStar);
 
             var resonse = new Response();
             resonse.Code = 0;

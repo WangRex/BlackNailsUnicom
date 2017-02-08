@@ -10,7 +10,9 @@ namespace BlackNails.Controllers
     public class OutsideTroubleManController : MVC5_BaseController
     {
         private OutsideTroubleManServices _OutsideTroubleManServices = new OutsideTroubleManServices();
-
+        private OrderServices _OrderServices = new OrderServices();
+        private AssessmentServices _AssessmentServices = new AssessmentServices();
+        
         public ActionResult index()
         {
             ViewBag.Title = "外线员列表";
@@ -21,21 +23,40 @@ namespace BlackNails.Controllers
         public ActionResult MyJsonList()
         {
             var Role = Session["RoleName"].ToString();
-            var OutsideTroubleManJson = _OutsideTroubleManServices.FindList().Select(otm => new
+            var OutsideTroubleManJson = _OutsideTroubleManServices.FindList().ToList();
+            //Select(otm => new
+            //{
+            //    OutsideTroubleMan_ID = otm.OutsideTroubleMan_ID,
+            //    Name = otm.Name,
+            //    Phone = otm.Phone,
+            //    WorkYear = otm.WorkYear,
+            //    WorkNo = otm.WorkNo,
+            //    ResponsibleAreaBrief = otm.ResponsibleAreaBrief,
+            //    Status = otm.Status,
+            //    serviceNum = _OrderServices.getOTMServiceNum(otm.OutsideTroubleMan_ID),
+            //    Role = Role
+            //}).ToList();
+
+            var list = new List<object>();
+            foreach (OutsideTroubleManModel _OutsideTroubleManModel in OutsideTroubleManJson)
             {
-                OutsideTroubleMan_ID = otm.OutsideTroubleMan_ID,
-                Name = otm.Name,
-                Phone = otm.Phone,
-                WorkYear = otm.WorkYear,
-                WorkNo = otm.WorkNo,
-                ResponsibleAreaBrief = otm.ResponsibleAreaBrief,
-                Status = otm.Status,
-                Role = Role
-            }).ToList();
+                Dictionary<string, object> dic = new Dictionary<string, object>();
+                dic.Add("OutsideTroubleMan_ID", _OutsideTroubleManModel.OutsideTroubleMan_ID);
+                dic.Add("Name", _OutsideTroubleManModel.Name);
+                dic.Add("Phone", _OutsideTroubleManModel.Phone);
+                dic.Add("WorkYear", _OutsideTroubleManModel.WorkYear);
+                dic.Add("WorkNo", _OutsideTroubleManModel.WorkNo);
+                dic.Add("ResponsibleAreaBrief", _OutsideTroubleManModel.ResponsibleAreaBrief);
+                dic.Add("Status", _OutsideTroubleManModel.Status);
+                dic.Add("ServiceNum", _OrderServices.getOTMServiceNum(_OutsideTroubleManModel.OutsideTroubleMan_ID));
+                dic.Add("GoodRaty", _AssessmentServices.getGoodAssessment(_OutsideTroubleManModel.OutsideTroubleMan_ID));
+                dic.Add("Role", Role);
+                list.Add(dic);
+            }
             var resonse = new Response();
             resonse.Code = 0;
             resonse.Message = "获取外线员列表成功！";
-            resonse.Data = OutsideTroubleManJson;
+            resonse.Data = list;
             return Json(resonse, JsonRequestBehavior.AllowGet);
         }
 

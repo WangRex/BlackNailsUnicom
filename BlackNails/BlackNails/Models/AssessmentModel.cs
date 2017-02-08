@@ -14,9 +14,33 @@ namespace BlackNails.Models
         public string Content { get; set; }
 
         /// <summary>
-        /// 评价星级
+        /// 问题处理
         /// </summary>
-        [Display(Name = "评价星级")]
-        public int Star { get; set; }
+        [Display(Name = "问题处理")]
+        public int QuestionStar { get; set; }
+
+        /// <summary>
+        /// 服务态度
+        /// </summary>
+        [Display(Name = "服务态度")]
+        public int AttitudeStar { get; set; }
+
+        /// <summary>
+        /// 综合评价
+        /// </summary>
+        [Display(Name = "综合评价")]
+        public int ComprehensiveStar { get; set; }
+
+        /// <summary>
+        /// 关联外线员ID
+        /// </summary>
+        [Display(Name = "关联外线员ID")]
+        public int OTM_ID { get; set; }
+
+        /// <summary>
+        /// 关联订单ID
+        /// </summary>
+        [Display(Name = "关联订单ID")]
+        public int ORDER_ID { get; set; }
     }
 }

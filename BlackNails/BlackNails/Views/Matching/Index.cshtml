@@ -5,7 +5,6 @@
 <!-- DATA TABLES -->
 <link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/datatables/media/css/jquery.dataTables.min.css" />
 <link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/datatables/media/assets/css/datatables.min.css" />
-<link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/datatables/extras/TableTools/media/css/TableTools.min.css" />
 <!-- SELECT2 -->
 <link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/select2/select2.min.css" />
 
@@ -123,11 +122,14 @@
         }
     }
     jQuery(document).ready(function () {
+        if(!window.OTM_ID) {
+            window.OTM_ID = @TempData["OTM_ID"];
+        }
         //Set current page
         App.setPage("dynamic_table");
         //Initialise plugins and elements
         App.init();
-        App.globalAjax("get", "/Matching/MyJsonList", {}, function (result) {
+        App.globalAjax("get", "/Matching/MyJsonList", {OTM_ID: window.OTM_ID}, function (result) {
             var html = template('Matchings-template', result);
             $("#datatable1").find("tbody").html(html);
             $('#datatable1').dataTable({
@@ -147,9 +149,9 @@
                     matchingIds += "," + $(obj).val();
                 }
             });
-            App.globalAjax("post", "/Matching/Bind", { OTM_ID: OTM_ID, matchingIds : matchingIds }, function (result) {
+            App.globalAjax("post", "/Matching/Bind", { OTM_ID: OTM_ID, matchingIds : matchingIds}, function (result) {
                 console.log(result);
-                App.globalAjax("get", "/Matching/MyJsonList", {}, function (result) {
+                App.globalAjax("get", "/Matching/MyJsonList", {OTM_ID: window.OTM_ID}, function (result) {
                     var html = template('Matchings-template', result);
                     $("#datatable1").find("tbody").html(html);
                     $('#datatable1').dataTable();

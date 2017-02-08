@@ -16,9 +16,27 @@ namespace BlackNails.DAL
             {
                 _AssessmentModel = new AssessmentModel();
                 _AssessmentModel.Content = "暂无评价";
-                _AssessmentModel.Star = 0;
+                _AssessmentModel.QuestionStar = 0;
+                _AssessmentModel.AttitudeStar = 0;
+                _AssessmentModel.ComprehensiveStar = 0;
             }
             return _AssessmentModel;
+        }
+        public int getGoodAssessment(int OTM_ID)
+        {
+            //获取实体列表
+            IQueryable<AssessmentModel> _Assessments = base.Repository.FindList().Where(am => am.OTM_ID == OTM_ID);
+            var starCount = 0;
+            var rate = 0;
+            foreach(AssessmentModel _AssessmentModel in _Assessments)
+            {
+                starCount = starCount + _AssessmentModel.ComprehensiveStar;
+            }
+            if(_Assessments.Count() != 0)
+            {
+                rate = starCount / (_Assessments.Count() * 5) * 100;
+            }
+            return rate;
         }
     }
 }
