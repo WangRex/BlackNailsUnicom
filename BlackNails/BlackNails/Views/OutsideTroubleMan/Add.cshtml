@@ -41,17 +41,19 @@
                 </div>
                 <div class="box-body big">
                     <div class="row">
-
-                        <div class="col-sm-2"><div><img src="~/Cloud_Admin/img/avatars/avatar.jpg" width="150px;" style="border:1px solid #000;"></div></div>
+                        <iframe name="submitIform" style="display:none;"></iframe>
+                        <div class="col-sm-2"><div><img id="photoImg" src="~/Cloud_Admin/img/avatars/avatar.jpg" width="150px;" style="border:1px solid #000;"></div></div>
                         <div class="col-sm-10">
-
-                            <form class="form-horizontal" role="form" action="/OutsideTroubleMan/Add" method="post">
+                            <form class="form-horizontal" id="addPhoto" role="form" action="/OutsideTroubleMan/Upload" method="post" enctype="multipart/form-data" target="submitIform">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">头像</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" name="Name" type="file" value="">
+                                        <input class="form-control" id="Photo" name="PhotoFile" type="file" value="" onchange="addPhoto();">
                                     </div>
                                 </div>
+                            </form>
+                            <form class="form-horizontal" role="form" action="/OutsideTroubleMan/Add" method="post">
+                                <input class="form-control" id="PhotoHidden" name="Photo" type="hidden" value="" >
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">姓名</label>
                                     <div class="col-sm-9">
@@ -124,21 +126,32 @@
 <script type="text/javascript" src="~/Cloud_Admin/js/select2/select2.min.js"></script>
 <!-- UNIFORM -->
 <script type="text/javascript" src="~/Cloud_Admin/js/uniform/jquery.uniform.min.js"></script>
+<!-- JQUERY FORM -->
+<script type="text/javascript" src="~/Cloud_Admin/js/jquery.form.js"></script>
 
 <script>
+    var interval = window.setInterval(getFileName, 1000);
+    function addPhoto() {
+        var fm = document.getElementById('addPhoto');
+        fm.submit();
+    }
+    function getFileName() {
+        App.globalAjax("get", "/OutsideTroubleMan/getFileName", {}, function (result) {
+            if (result) {
+                $("#photoImg").attr("src", "../" + result);
+                $("#PhotoHidden").val(result);
+                App.globalAjax("get", "/OutsideTroubleMan/removeFileName", {}, function (result) {
+                    window.clearInterval(interval);
+                });
+            }
+        });
+    }
     jQuery(document).ready(function () {
         $(".datepicker").datepicker();
         //Set current page
         App.setPage("forms");
         //Initialise plugins and elements
         App.init();
-        //App.globalAjax("get", "/OutsideTroubleMan/MyJsonList", {}, function (result) {
-        //    var html = template('OutsideTroubleMans-template', result);
-        //    $("#datatable1").find("tbody").html(html);
-        //    $('#datatable1').dataTable({
-        //        "sPaginationType": "bs_full"
-        //    });
-        //});
     });
 </script>
 <!-- /JAVASCRIPTS -->

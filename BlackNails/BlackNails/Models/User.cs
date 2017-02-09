@@ -144,6 +144,12 @@ namespace BlackNails.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// 外线员头像
+        /// </summary>
+        [Display(Name = "外线员头像")]
+        public string Photo { get; set; }
+
+        /// <summary>
         /// 外线员电话
         /// </summary>
         [Display(Name = "外线员电话")]
