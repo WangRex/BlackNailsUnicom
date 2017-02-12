@@ -15,6 +15,7 @@ namespace BlackNails.DAL
         public DbSet<OutsideTroubleManModel> OutsideTroubleMans { get; set; }
         public DbSet<DepartmentModel> Departments { get; set; }
         public DbSet<OrderModel> Orders { get; set; }
+        public DbSet<OrderHistoryModel> OrderHistorys { get; set; }
         public DbSet<AssessmentModel> Assessments { get; set; }
         public DbSet<MatchingModel> Matchings { get; set; }
         public DbSet<CustomerModel> Customers { get; set; }

@@ -41,13 +41,14 @@ namespace BlackNails.WebAPI
             {
                 _OrderModel.Status = "处理中";
             }
+            _OrderServices.Add(_OrderModel);
             OrderHistoryModel _OrderHistoryModel = new OrderHistoryModel();
             _OrderHistoryModel.CreatePerson = "System";
             _OrderHistoryModel.CreateTime = DateTime.Now;
             _OrderHistoryModel.Order_ID = _OrderModel.Order_ID;
             _OrderHistoryModel.Status = _OrderModel.Status;
             _OrderHistoryModel.UpdateTime = DateTime.Now;
-
+            _OrderHistoryServices.Add(_OrderHistoryModel);
             response.Data = _OrderModel;
             return toJson(response);
         }
