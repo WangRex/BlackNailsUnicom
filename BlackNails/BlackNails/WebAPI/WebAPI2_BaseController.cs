@@ -1,5 +1,4 @@
-﻿using BlackNails.Config;
-using System;
+﻿using System;
 using System.Web.Http;
 using System.Net.Http;
 using System.Web.Script.Serialization;
