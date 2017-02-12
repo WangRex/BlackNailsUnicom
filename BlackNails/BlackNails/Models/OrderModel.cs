@@ -8,6 +8,24 @@ namespace BlackNails.Models
         public int Order_ID { get; set; }
 
         /// <summary>
+        /// 用户姓名
+        /// </summary>
+        [Display(Name = "用户姓名")]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 所在城市
+        /// </summary>
+        [Display(Name = "所在城市")]
+        public string City { get; set; }
+
+        /// <summary>
+        /// 所在辖区
+        /// </summary>
+        [Display(Name = "所在辖区")]
+        public string Area { get; set; }
+
+        /// <summary>
         /// 订单时间
         /// </summary>
         [Display(Name = "订单时间")]
@@ -18,6 +36,12 @@ namespace BlackNails.Models
         /// </summary>
         [Display(Name = "订单地址")]
         public string Address { get; set; }
+
+        /// <summary>
+        /// 订单匹配地址
+        /// </summary>
+        [Display(Name = "订单匹配地址")]
+        public string MatchingAddress { get; set; }
 
         /// <summary>
         /// 订单手机号
@@ -42,6 +66,12 @@ namespace BlackNails.Models
         /// </summary>
         [Display(Name = "订单状态")]
         public string Status { get; set; }
+
+        /// <summary>
+        /// 订单描述
+        /// </summary>
+        [Display(Name = "订单描述")]
+        public string Description { get; set; }
 
         /// <summary>
         /// 外线员ID

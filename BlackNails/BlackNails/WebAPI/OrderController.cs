@@ -15,20 +15,25 @@ namespace BlackNails.WebAPI
         private CustomerServices _CustomerServices = new CustomerServices();
 
         [HttpPost]
-        public HttpResponseMessage CreateOrder(CustomerModel _CustomerModel)
+        public HttpResponseMessage CreateOrder(OrderModel _OrderModel)
         {
             var response = new Response();
             response.Code = 0;
             response.Message = "添加订单成功！";
+            CustomerModel _CustomerModel = new CustomerModel();
             _CustomerModel.CreatePerson = "Mobile";
             _CustomerModel.CreateTime = DateTime.Now;
             _CustomerModel.UpdateTime = DateTime.Now;
+            _CustomerModel.Name = _OrderModel.Name;
+            _CustomerModel.Phone = _OrderModel.Phone;
+            _CustomerModel.Tel = _OrderModel.Tel;
+            _CustomerModel.Address = _OrderModel.Address;
             _CustomerServices.Add(_CustomerModel);
-            OrderModel _OrderModel = new OrderModel();
             _OrderModel.CreatePerson = "Mobile";
             _OrderModel.CreateTime = DateTime.Now;
             _OrderModel.UpdateTime = DateTime.Now;
-            _OrderModel.OTM_ID = _MatchingServices.getOTM_IDByAddress(_CustomerModel.StreedRoad + _CustomerModel.Number);
+            _OrderModel.Assessment_ID = 0;
+            _OrderModel.OTM_ID = _MatchingServices.getOTM_IDByAddress(_OrderModel.MatchingAddress);
             if (_OrderModel.OTM_ID == 0)
             {
                 _OrderModel.Status = "新订单";

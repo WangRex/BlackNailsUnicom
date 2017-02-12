@@ -243,18 +243,6 @@ namespace BlackNails.Models
         public string Address { get; set; }
 
         /// <summary>
-        /// 住址街道/路
-        /// </summary>
-        [Display(Name = "住址街道/路")]
-        public string StreedRoad { get; set; }
-
-        /// <summary>
-        /// 街道/路号
-        /// </summary>
-        [Display(Name = "街道/路号")]
-        public string Number { get; set; }
-
-        /// <summary>
         /// ONU
         /// </summary>
         [Display(Name = "ONU")]
