@@ -1,4 +1,5 @@
 ﻿using BlackNails.Models;
+using System;
 using System.Linq;
 
 namespace BlackNails.DAL
@@ -14,6 +15,17 @@ namespace BlackNails.DAL
                 OTM_ID = _Matchings.First().OTM_ID;
             }
             return OTM_ID;
+        }
+
+        public bool isAddressNotExist(string matchingAddress)
+        {
+            bool result = true;
+            IQueryable<MatchingModel> _Matchings = base.Repository.FindList().Where(mm => mm.Address == matchingAddress);
+            if (_Matchings.Count() > 0)
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }

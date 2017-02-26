@@ -165,13 +165,25 @@ namespace BlackNails.Models
         /// 外线员工号
         /// </summary>
         [Display(Name = "外线员工号")]
-        public string WorkNo { get; set; }
+        public string EmployeeNo { get; set; }
+
+        /// <summary>
+        /// 外线员登陆密码
+        /// </summary>
+        [Display(Name = "外线员登陆密码")]
+        public string Password { get; set; }
 
         /// <summary>
         /// 外线员所属部门
         /// </summary>
         [Display(Name = "外线员所属部门")]
         public string Department { get; set; }
+
+        /// <summary>
+        /// 外线员业务内容
+        /// </summary>
+        [Display(Name = "外线员业务内容")]
+        public string Business { get; set; }
 
         /// <summary>
         /// 外线员负责区域简介

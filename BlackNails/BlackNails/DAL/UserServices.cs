@@ -277,6 +277,18 @@ namespace BlackNails.DAL
             return str;
         }
 
+        public OutsideTroubleManModel login(string EmployeeNo, string Password)
+        {
+            OutsideTroubleManModel _OutsideTroubleManModel = new OutsideTroubleManModel();
+            //获取实体列表
+            IQueryable<OutsideTroubleManModel> _OutsideTroubleMans = base.Repository.FindList().Where(otm => otm.EmployeeNo == EmployeeNo && otm.Password == Password);
+            if(_OutsideTroubleMans.Count() > 0)
+            {
+                _OutsideTroubleManModel = _OutsideTroubleMans.First();
+            }
+            return _OutsideTroubleManModel;
+        }
+
     }
 
     public class CustomerServices : BaseManager<CustomerModel>

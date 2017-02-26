@@ -11,17 +11,17 @@
 <link rel="stylesheet" type="text/css" href="~/Cloud_Admin/js/uniform/css/uniform.default.min.css" />
 
 <div class="container">
+    <input type="hidden" id="Order_ID" />
     <!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
     <div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">绑定外线员</h4>
+                    <h4 class="modal-title">指派外线员</h4>
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal " action="#">
-                        <input type="hidden" id="Order_ID" />
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="e1">外线员列表</label>
                             <div class="col-md-10">
@@ -32,7 +32,31 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="bind();">绑定</button>
+                    <button type="button" class="btn btn-primary" onclick="bind();">指派</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /SAMPLE BOX CONFIGURATION MODAL FORM-->    <!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
+    <div class="modal fade" id="delete-confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">友情提醒</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal " action="#">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                否要删除订单信息？
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="Delete();">是</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">否</button>
                 </div>
             </div>
         </div>
@@ -116,9 +140,9 @@
         <td>{{value.Tel}}</td>
         <td>{{value.Type}}</td>
         <td>{{value.Status}}</td>
-        <td>{{if value.Status == "新订单"}}<a href="#box-config" data-toggle="modal" class="config" onclick="bindData({{value.Order_ID}});">绑定</a>{{else}}{{value.OTMName}}{{/if}}</td>
+        <td>{{if value.Status == "新订单"}}<a href="#box-config" data-toggle="modal" class="config" onclick="bindData({{value.Order_ID}});">指派</a>{{else}}{{value.OTMName}}{{/if}}</td>
         <td>{{value.AssessmentContent}}</td>
-        <td>{{if value.Role == "超级管理员"}}<a href="/Order/ViewPage?Order_ID={{value.Order_ID}}">查看</a>{{else}}{{/if}}</td>
+        <td>{{if value.Role == "超级管理员"}}<a href="/Order/ViewPage?Order_ID={{value.Order_ID}}">查看</a>&nbsp;<a href="#delete-confirm" data-toggle="modal" class="config" onclick="bindData({{value.Order_ID}});">删除</a>{{else}}{{/if}}</td>
     </tr>
     {{/each}}
 </script>
@@ -148,6 +172,17 @@
         var data = { Order_ID: Order_ID, OTM_ID: OTM_ID };
         App.globalAjax("post", "/Order/Bind", data, function (result) {
             console.log(result);
+        });
+    }
+    function Delete() {
+        var Order_ID = $("#Order_ID").val();
+        var data = { Order_ID: Order_ID };
+        App.globalAjax("post", "/Order/DeleteOrder", data, function (result) {
+            App.globalAjax("get", "/Order/MyJsonList", {}, function (result) {
+                var html = template('Orders-template', result);
+                $("#datatable1").find("tbody").html(html);
+                $('#datatable1').dataTable();
+            });
         });
     }
     jQuery(document).ready(function () {

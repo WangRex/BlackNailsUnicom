@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(BlackNails.Startup))]
+[assembly: log4net.Config.XmlConfigurator()]
 namespace BlackNails
 {
     public partial class Startup

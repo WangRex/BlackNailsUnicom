@@ -26,10 +26,5 @@ namespace BlackNails.Controllers
             HttpResponseMessage result = new HttpResponseMessage { Content = new StringContent(str, Encoding.GetEncoding("UTF-8"), "application/json") };
             return result;
         }
-
-        public string Options()
-        {
-            return null; // HTTP 200 response with empty body
-        }
     }
 }

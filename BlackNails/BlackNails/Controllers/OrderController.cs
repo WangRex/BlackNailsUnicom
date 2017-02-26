@@ -13,6 +13,7 @@ namespace BlackNails.Controllers
         private OrderHistoryServices _OrderHistoryServices = new OrderHistoryServices();
         private OutsideTroubleManServices _OutsideTroubleManServices = new OutsideTroubleManServices();
         private AssessmentServices _AssessmentServices = new AssessmentServices();
+        private MatchingServices _MatchingServices = new MatchingServices();
 
         public ActionResult Index()
         {
@@ -30,7 +31,7 @@ namespace BlackNails.Controllers
             foreach (OrderModel _OrderModel in OrderJson) {
                 Dictionary<string, object> dic = new Dictionary<string, object>();
                 dic.Add("Order_ID", _OrderModel.Order_ID);
-                dic.Add("Time", _OrderModel.Time);
+                dic.Add("Time", _OrderModel.CreateTime.ToString());
                 dic.Add("Address", _OrderModel.Address);
                 dic.Add("Phone", _OrderModel.Phone);
                 dic.Add("Tel", _OrderModel.Tel);
@@ -64,7 +65,7 @@ namespace BlackNails.Controllers
             Dictionary<string, object> dic = new Dictionary<string, object>();
 
             dic.Add("Order_ID", _OrderModel.Order_ID);
-            dic.Add("Time", _OrderModel.Time);
+            dic.Add("Time", _OrderModel.CreateTime.ToShortDateString());
             dic.Add("Address", _OrderModel.Address);
             dic.Add("Phone", _OrderModel.Phone);
             dic.Add("Tel", _OrderModel.Tel);
@@ -88,7 +89,7 @@ namespace BlackNails.Controllers
         {
             OrderModel _OrderModel = _OrderServices.Find(Order_ID);
             _OrderModel.OTM_ID = OTM_ID;
-            _OrderModel.Status = "处理中";
+            _OrderModel.Status = "待接单";
             _OrderModel.UpdatePerson = "System";
             _OrderModel.UpdateTime = DateTime.Now;
             _OrderServices.Update(_OrderModel);
@@ -96,9 +97,24 @@ namespace BlackNails.Controllers
             OrderHistoryModel _OrderHistoryModel = new OrderHistoryModel();
             _OrderHistoryModel.CreatePerson = Session["UserName"].ToString();
             _OrderHistoryModel.CreateTime = DateTime.Now;
+            _OrderHistoryModel.UpdateTime = DateTime.Now;
             _OrderHistoryModel.Order_ID = _OrderModel.Order_ID;
             _OrderHistoryModel.Status = _OrderModel.Status;
             _OrderHistoryServices.Add(_OrderHistoryModel);
+
+            if (!string.Empty.Equals(_OrderModel.MatchingAddress))
+            {
+                if (_MatchingServices.isAddressNotExist(_OrderModel.MatchingAddress))
+                {
+                    MatchingModel _MatchingModel = new MatchingModel();
+                    _MatchingModel.CreateTime = DateTime.Now;
+                    _MatchingModel.UpdateTime = DateTime.Now;
+                    _MatchingModel.CreatePerson = "System";
+                    _MatchingModel.Address = _OrderModel.MatchingAddress;
+                    _MatchingModel.OTM_ID = _OrderModel.OTM_ID;
+                    _MatchingServices.Add(_MatchingModel);
+                }
+            }
 
             var resonse = new Response();
             resonse.Code = 0;
@@ -122,6 +138,25 @@ namespace BlackNails.Controllers
             resonse.Code = 0;
             resonse.Message = "获取订单数量成功！";
             resonse.Data = dic;
+            return Json(resonse, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult DeleteOrder(int Order_ID)
+        {
+            ViewBag.Title = "删除订单";
+            OrderModel _OrderModel = _OrderServices.Find(Order_ID);
+            OrderHistoryModel _OrderHistoryModel = new OrderHistoryModel();
+            _OrderHistoryModel.CreatePerson = Session["UserName"].ToString();
+            _OrderHistoryModel.CreateTime = DateTime.Now;
+            _OrderHistoryModel.UpdateTime = DateTime.Now;
+            _OrderHistoryModel.Order_ID = _OrderModel.Order_ID;
+            _OrderHistoryModel.Status = "删除订单";
+            _OrderHistoryServices.Add(_OrderHistoryModel);
+            _OrderServices.Delete(Order_ID);
+            var resonse = new Response();
+            resonse.Code = 0;
+            resonse.Message = "删除订单成功！";
+            resonse.Data = _OrderModel;
             return Json(resonse, JsonRequestBehavior.AllowGet);
         }
     }

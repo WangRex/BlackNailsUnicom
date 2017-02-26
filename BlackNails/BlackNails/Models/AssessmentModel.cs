@@ -41,6 +41,12 @@ namespace BlackNails.Models
         /// 关联订单ID
         /// </summary>
         [Display(Name = "关联订单ID")]
-        public int ORDER_ID { get; set; }
+        public int Order_ID { get; set; }
+
+        /// <summary>
+        /// 关联用户手机号
+        /// </summary>
+        [Display(Name = "关联用户手机号")]
+        public string Phone { get; set; }
     }
 }

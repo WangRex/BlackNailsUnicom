@@ -38,7 +38,7 @@ namespace BlackNails.Controllers
                 dic.Add("Name", _OutsideTroubleManModel.Name);
                 dic.Add("Phone", _OutsideTroubleManModel.Phone);
                 dic.Add("WorkYear", _OutsideTroubleManModel.WorkYear);
-                dic.Add("WorkNo", _OutsideTroubleManModel.WorkNo);
+                dic.Add("EmployeeNo", _OutsideTroubleManModel.EmployeeNo);
                 dic.Add("ResponsibleAreaBrief", _OutsideTroubleManModel.ResponsibleAreaBrief);
                 dic.Add("Status", _OutsideTroubleManModel.Status);
                 dic.Add("ServiceNum", _OrderServices.getOTMServiceNum(_OutsideTroubleManModel.OutsideTroubleMan_ID));

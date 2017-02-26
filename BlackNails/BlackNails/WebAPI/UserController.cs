@@ -7,13 +7,21 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Script.Serialization;
 
 namespace BlackNails.WebAPI
 {
+    /// <summary>  
+    /// 客户信息  
+    /// </summary>  
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserController : WebAPI2BaseController
     {
-
+        /// <summary>
+        /// 发送手机验证码
+        /// </summary>
+        /// <param name="mobile">手机号</param>
         [HttpGet]
         public HttpResponseMessage sendCode(string mobile)
         {
@@ -56,12 +64,13 @@ namespace BlackNails.WebAPI
             ReturnJson _ReturnJson = jsonSerializer.Deserialize<ReturnJson>(responseFromServer);
             var code = _ReturnJson.code;
             var sessionId = _ReturnJson.sessionId;
-            if(code == 200)
+            if (code == 200)
             {
                 response.Code = 0;
                 response.Message = "发送验证码成功！";
                 context.Cache.Insert(mobile, sessionId);
-            } else
+            }
+            else
             {
                 response.Code = 1;
                 response.Message = "发送验证码失败！";
@@ -75,6 +84,11 @@ namespace BlackNails.WebAPI
             return toJson(response);
         }
 
+        /// <summary>
+        /// 验证手机验证码
+        /// </summary>
+        /// <param name="mobile">手机号</param>
+        /// <param name="code">验证码</param>
         [HttpGet]
         public HttpResponseMessage verifyCode(string mobile, string code)
         {
@@ -97,7 +111,7 @@ namespace BlackNails.WebAPI
 
             WebRequest request = WebRequest.Create("http://api.sms.ronghub.com/verifyCode.json");
             request.Method = "POST";
-            string postData = "sessionId="+ context.Cache[mobile] +"&code=" + code;
+            string postData = "sessionId=" + context.Cache[mobile] + "&code=" + code;
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
             request.ContentType = "application/x-www-form-urlencoded";
             request.Headers.Add("App-Key", Constant.APP_KEY);
@@ -115,7 +129,7 @@ namespace BlackNails.WebAPI
             ReturnJson _ReturnJson = jsonSerializer.Deserialize<ReturnJson>(responseFromServer);
             var rtnCode = _ReturnJson.code;
             var rtnSuccess = _ReturnJson.success;
-            if (rtnCode == 200)
+            if (rtnCode == 200 && "true".ToUpper().Equals(rtnSuccess.ToUpper()))
             {
                 response.Code = 0;
                 response.Message = "手机号验证成功！";

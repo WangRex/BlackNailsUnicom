@@ -14,6 +14,12 @@ namespace BlackNails.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// 所在省市
+        /// </summary>
+        [Display(Name = "所在省市")]
+        public string Province { get; set; }
+
+        /// <summary>
         /// 所在城市
         /// </summary>
         [Display(Name = "所在城市")]
@@ -63,6 +69,7 @@ namespace BlackNails.Models
 
         /// <summary>
         /// 订单状态
+        /// 新订单/待接单/处理中/待评价/已完成
         /// </summary>
         [Display(Name = "订单状态")]
         public string Status { get; set; }
