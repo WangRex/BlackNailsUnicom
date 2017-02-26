@@ -17,10 +17,10 @@ namespace BlackNails.DAL
             var _Orders = base.Repository.FindList().Where(om => om.OTM_ID == OTM_ID && om.Status == status).ToList();
             return _Orders;
         }
-        public List<OrderModel> getWaitingAssessmentOrders(string Phone)
+        public List<OrderModel> getWaitingAssessmentOrders(string Phone, string Status)
         {
             //获取实体列表
-            IQueryable<OrderModel> _Orders = base.Repository.FindList().Where(om => om.Phone == Phone && om.Status == "待评价");
+            IQueryable<OrderModel> _Orders = base.Repository.FindList().Where(om => om.Phone == Phone && om.Status.Equals(Status));
             return _Orders.ToList();
         }
     }

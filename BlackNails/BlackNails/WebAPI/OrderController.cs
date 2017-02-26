@@ -185,18 +185,19 @@ namespace BlackNails.WebAPI
         }
 
         /// <summary>  
-        /// 用户获取待评价订单列表
+        /// 用户获取订单列表
         /// </summary>  
         /// <param name="Phone">用户手机号</param>
+        /// <param name="Status">状态（待评价/已完成）</param>
         [HttpGet]
-        public HttpResponseMessage GetWaitingAssessmentOrders(string Phone)
+        public HttpResponseMessage GetAssessmentOrders(string Phone, string Status)
         {
             log.Debug("OrderController.GetWaitingAssessmentOrderByPhone Start!");
-            log.Debug("Phone is " + Phone);
+            log.Debug("Phone is " + Phone + ",Status is " + Status);
             var response = new Response();
             response.Code = 0;
-            response.Message = "获取待评价订单列表成功！";
-            response.Data = _OrderServices.getWaitingAssessmentOrders(Phone);
+            response.Message = "获取" + Status + "订单列表成功！";
+            response.Data = _OrderServices.getWaitingAssessmentOrders(Phone, Status);
             return toJson(response);
         }
 
