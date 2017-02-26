@@ -1,4 +1,5 @@
-﻿using BlackNails.DAL;
+﻿using BlackNails.CommonClass;
+using BlackNails.DAL;
 using BlackNails.Models;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,9 @@ using System.Web.Mvc;
 
 namespace BlackNails.Controllers
 {
+    /// <summary>
+    /// 订单管理
+    /// </summary>
     public class OrderController : MVC5_BaseController
     {
         private OrderServices _OrderServices = new OrderServices();
@@ -15,12 +19,20 @@ namespace BlackNails.Controllers
         private AssessmentServices _AssessmentServices = new AssessmentServices();
         private MatchingServices _MatchingServices = new MatchingServices();
 
+        /// <summary>
+        /// 订单列表首页
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             ViewBag.Title = "订单列表";
             return View();
         }
 
+        /// <summary>
+        /// 获取订单列表
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult MyJsonList()
         {
@@ -50,6 +62,11 @@ namespace BlackNails.Controllers
             return Json(resonse, JsonRequestBehavior.AllowGet);
         }
 
+        /// <summary>
+        /// 获取订单详情跳转页
+        /// </summary>
+        /// <param name="Order_ID">订单ID</param>
+        /// <returns></returns>
         public ActionResult ViewPage(int Order_ID)
         {
             ViewBag.Title = "订单详情";
@@ -57,6 +74,11 @@ namespace BlackNails.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 获取订单详情
+        /// </summary>
+        /// <param name="Order_ID">订单ID</param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult MyJsonOrder(int Order_ID)
         {
@@ -84,6 +106,12 @@ namespace BlackNails.Controllers
             return Json(resonse, JsonRequestBehavior.AllowGet);
         }
 
+        /// <summary>
+        /// 指派外线员
+        /// </summary>
+        /// <param name="Order_ID">订单ID</param>
+        /// <param name="OTM_ID">外线员ID</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Bind(int Order_ID, int OTM_ID)
         {
@@ -123,6 +151,10 @@ namespace BlackNails.Controllers
             return Json(resonse, JsonRequestBehavior.AllowGet);
         }
 
+        /// <summary>
+        /// 首页合同数统计
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult MyJsonListCount()
         {
@@ -141,6 +173,11 @@ namespace BlackNails.Controllers
             return Json(resonse, JsonRequestBehavior.AllowGet);
         }
 
+        /// <summary>
+        /// 删除订单
+        /// </summary>
+        /// <param name="Order_ID">订单ID</param>
+        /// <returns></returns>
         public ActionResult DeleteOrder(int Order_ID)
         {
             ViewBag.Title = "删除订单";
