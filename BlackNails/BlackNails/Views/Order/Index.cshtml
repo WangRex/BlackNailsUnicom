@@ -180,6 +180,11 @@
         App.globalAjax("post", "/Order/DeleteOrder", data, function (result) {
             App.globalAjax("get", "/Order/MyJsonList", {}, function (result) {
                 var html = template('Orders-template', result);
+                if ($('#datatable1').hasClass('dataTable')) {
+                    dttable = $('#datatable1').dataTable();
+                    dttable.fnClearTable(); //清空一下table
+                    dttable.fnDestroy(); //还原初始化了的datatable
+                }
                 $("#datatable1").find("tbody").html(html);
                 $('#datatable1').dataTable();
             });
@@ -191,10 +196,11 @@
         App.setPage("dynamic_table");
         //Initialise plugins and elements
         App.init();
+        var dttable;
         App.globalAjax("get", "/Order/MyJsonList", {}, function (result) {
             var html = template('Orders-template', result);
             $("#datatable1").find("tbody").html(html);
-            $('#datatable1').dataTable({
+            dt = $('#datatable1').dataTable({
                 "sPaginationType": "bs_full"
             });
         });
